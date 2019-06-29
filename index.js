@@ -1,20 +1,26 @@
 // inports
 const express = require('express')
-const database = require('./db')
-const { Client } = require('pg')
+const bodyParser = require('body-parser')
 
-
-/* old code
 // constant valus
 const port = process.env.PORT || 4000
-const connectionString = process.env.DATABASE_URL || 'postgresql://postgres:week-5@localhost:5432/postgres'
+const jsonParser = bodyParser.json()
 
 // init's
 const app = express()
+
+// routers
+app.listen(port, () => console.log(`lisenign on port: ${port}`))
+
+
+/* old code
+
+const connectionString = process.env.DATABASE_URL || 'postgresql://postgres:week-5@localhost:5432/postgres'
+
+
 const client = new Client({ connectionString })
 
 // code body
-app.listen(port, () => console.log(`lisenign on port: ${port}`))
 
 // is the sever up?
 app.get('/ping', (request, response) => {
