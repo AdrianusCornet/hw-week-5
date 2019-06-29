@@ -18,5 +18,27 @@ app.get('/ping', (request, response) => {
   console.log('ping pong')
   response.send('pong')
 })
+// test 1
+app.get('/test1', (request, response) => {
+  client.query('SELECT * FROM test', (dbError, dbResponse) => {
+    if(dbError) {
+      // internal server error
+      response
+        .status(500)
+        .send({
+          message: 'server error',
+          details: dbError.message
+        })
+    } else if (dbResponse.rowCount) {
+      response.send(dbResponse.rows)
+    } else {
+      response
+        .status(404)
+        .send({
+          message: 'i dont have data'
+        })
+    }
+  })
+})
 
 client.connect()
