@@ -17,6 +17,12 @@ app.listen(port, () => console.log(`lisenign on port: ${port}`))
 app.use(jsonParser)
 app.use(authenticationRouter)
 
+// can the server respond
+app.get('/ping', (request, response) => {
+  console.log('ping pong')
+  response.send('pong')
+})
+
 /* old code
 
 const connectionString = process.env.DATABASE_URL || 'postgresql://postgres:week-5@localhost:5432/postgres'
@@ -26,12 +32,7 @@ const client = new Client({ connectionString })
 
 // code body
 
-// is the sever up?
-app.get('/ping', (request, response) => {
-  console.log('ping pong')
-  response.send('pong')
-})
-// test 
+// test
 app.get('/test/:id', (request, response) => {
   const testId = request.params.id
 
