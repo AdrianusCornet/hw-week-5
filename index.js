@@ -3,6 +3,8 @@ const express = require('express')
 const database = require('./db')
 const { Client } = require('pg')
 
+
+/* old code
 // constant valus
 const port = process.env.PORT || 4000
 const connectionString = process.env.DATABASE_URL || 'postgresql://postgres:week-5@localhost:5432/postgres'
@@ -45,3 +47,4 @@ app.get('/test/:id', (request, response) => {
 })
 
 client.connect()
+*/
