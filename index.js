@@ -1,8 +1,13 @@
+// inports
 const express = require('express')
 
-const app = express()
+// constant valus
 const port = process.env.PORT || 4000
 
+// init's
+const app = express()
+
+// code body
 app.listen(port, () => console.log(`lisenign on port: ${port}`))
 
 // is the sever up?
