@@ -4,7 +4,7 @@ const { Client } = require('pg')
 
 // constant valus
 const port = process.env.PORT || 4000
-const connectionString = 'postgresql://postgres:week-5@localhost:5432/postgres'
+const connectionString = process.env.DATABASE_URL || 'postgresql://postgres:week-5@localhost:5432/postgres'
 
 // init's
 const app = express()
