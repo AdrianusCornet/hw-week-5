@@ -1,5 +1,6 @@
 // inports
 const express = require('express')
+const database = require('./db')
 const { Client } = require('pg')
 
 // constant valus
