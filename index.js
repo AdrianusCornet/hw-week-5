@@ -1,6 +1,9 @@
 // inports
 const express = require('express')
 const bodyParser = require('body-parser')
+// -routers
+const authenticationRouter = require('./authentication/router')
+// -models
 
 // constant valus
 const port = process.env.PORT || 4000
@@ -11,7 +14,8 @@ const app = express()
 
 // routers
 app.listen(port, () => console.log(`lisenign on port: ${port}`))
-
+app.use(jsonParser)
+app.use(authenticationRouter)
 
 /* old code
 
