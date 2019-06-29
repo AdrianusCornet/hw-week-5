@@ -18,9 +18,11 @@ app.get('/ping', (request, response) => {
   console.log('ping pong')
   response.send('pong')
 })
-// test 1
-app.get('/test1', (request, response) => {
-  client.query('SELECT * FROM test', (dbError, dbResponse) => {
+// test 
+app.get('/test/:id', (request, response) => {
+  const testId = request.params.id
+
+  client.query('SELECT * FROM test WHERE id = $1', [testId] , (dbError, dbResponse) => {
     if(dbError) {
       // internal server error
       response
@@ -29,13 +31,13 @@ app.get('/test1', (request, response) => {
           message: 'server error',
           details: dbError.message
         })
-    } else if (dbResponse.rowCount) {
-      response.send(dbResponse.rows)
+    } else if (dbResponse.rows[0]) {
+      response.send(dbResponse.rows[0])
     } else {
       response
         .status(404)
         .send({
-          message: 'i dont have data'
+          message: 'i dont have that data'
         })
     }
   })
