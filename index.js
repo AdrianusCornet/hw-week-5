@@ -3,6 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 // -routers
 const authenticationRouter = require('./authentication/router')
+const testrouter = require('./test/router')
 // -models
 
 // constant valus

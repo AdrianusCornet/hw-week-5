@@ -15,3 +15,5 @@ const Test = db.define(
   },
   { tableName: 'test_table' }
 )
+
+module.exports = Test
