@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 // -routers
 const authenticationRouter = require('./authentication/router')
-const testrouter = require('./test/router')
+const testRouter = require('./test/router')
 // -models
 
 // constant valus
@@ -17,6 +17,7 @@ const app = express()
 app.listen(port, () => console.log(`lisenign on port: ${port}`))
 app.use(jsonParser)
 app.use(authenticationRouter)
+app.use(testRouter)
 
 // can the server respond
 app.get('/ping', (request, response) => {
